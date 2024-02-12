@@ -1,9 +1,9 @@
 """
 This program calculates the amount of concrete required for the desired width
  and length of a residential or commercial building
-v3 fixes the problem with depth calculations by placing the  variables into the
-loop and fixes the problem with 'x' finishing the program by changing the while
-loop so that it includes a 'break' to break the loop and corrects the order so
+v3 fixes the problem with depth calculations by placing the variables into the
+loop and changes the while loop so that it includes a 'break' to break the loop
+ replacing 'x' with 'while True' to finish the program. Corrects the order so
 the loop first checks if the user entered 'x' before proceeding with the rest
 of the calculations (still does not work)
  """
@@ -39,10 +39,6 @@ print("\nWelcome to the Concrete Calculator. To end program and receive total "
 # initialize total volume variable
 total_concrete_volume = 0
 
-# adds depth variable
-RESIDENTIAL_DEPTH = 0.25
-COMMERCIAL_DEPTH = 0.5
-
 # main routine
 # get user input for building type
 building_type = (
@@ -50,7 +46,11 @@ building_type = (
     .lower())
 
 # run the program until the user enters 'X' for building type
-while building_type.lower() != "x":
+while True:
+
+    # adds depth variable
+    RESIDENTIAL_DEPTH = 0.25
+    COMMERCIAL_DEPTH = 0.5
 
     # get user input for building length, width
     building_length = integer_checker("Building length in metres: ")
@@ -82,9 +82,6 @@ while building_type.lower() != "x":
     if building_type.lower() == "x":
         break
 
-    # If the user did not enter 'X', get new inputs for length and width
-    building_length = integer_checker("Building length in metres: ")
-    building_width = integer_checker("Building width in metres: ")
 
 # print farewell thank you message
 print(f"\nThe total amount of concrete needed for the day is "
